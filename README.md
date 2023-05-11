@@ -1,4 +1,4 @@
-# VITULUS bno085 calibration
+# VITULUS BNO085 calibration
  
 Use this script and follow the instructions in document bellow.
 
