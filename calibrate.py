@@ -4,18 +4,18 @@
 # Modified for VITULUS by robert@lacina.dev
 
 import time
-import adafruit_bno08x
-from adafruit_bno08x.uart import BNO08X_UART
+import adafruit_bno08xMOD
+from adafruit_bno08xMOD.uart import BNO08X_UART
 
 import serial
 uart = serial.Serial("/dev/ttyUSB0", baudrate=3000000)
 bno = BNO08X_UART(uart, debug=False)
 
 bno.begin_calibration()
-bno.enable_feature(adafruit_bno08x.BNO_REPORT_MAGNETOMETER)
-bno.enable_feature(adafruit_bno08x.BNO_REPORT_GAME_ROTATION_VECTOR)
-bno.enable_feature(adafruit_bno08x.BNO_REPORT_ACCELEROMETER)
-bno.enable_feature(adafruit_bno08x.BNO_REPORT_GYROSCOPE)
+bno.enable_feature(adafruit_bno08xMOD.BNO_REPORT_MAGNETOMETER)
+bno.enable_feature(adafruit_bno08xMOD.BNO_REPORT_GAME_ROTATION_VECTOR)
+bno.enable_feature(adafruit_bno08xMOD.BNO_REPORT_ACCELEROMETER)
+bno.enable_feature(adafruit_bno08xMOD.BNO_REPORT_GYROSCOPE)
 
 start_time = time.monotonic()
 time_get_status = time.monotonic()
@@ -46,22 +46,22 @@ while True:
         time_get_status = time.monotonic()
         print(
             "Magnetometer Calibration quality:",
-            adafruit_bno08x.REPORT_ACCURACY_STATUS[mag_status],
+            adafruit_bno08xMOD.REPORT_ACCURACY_STATUS[mag_status],
             " (%d)" % mag_status,
         )
         print(
             "Acc Calibration quality:",
-            adafruit_bno08x.REPORT_ACCURACY_STATUS[acc_status],
+            adafruit_bno08xMOD.REPORT_ACCURACY_STATUS[acc_status],
             " (%d)" % acc_status,
         )
         print(
             "Gyro Calibration quality:",
-            adafruit_bno08x.REPORT_ACCURACY_STATUS[gyro_status],
+            adafruit_bno08xMOD.REPORT_ACCURACY_STATUS[gyro_status],
             " (%d)" % gyro_status,
         )
         print(
             "Game Calibration quality:",
-            adafruit_bno08x.REPORT_ACCURACY_STATUS[game_status],
+            adafruit_bno08xMOD.REPORT_ACCURACY_STATUS[game_status],
             " (%d)" % game_status,
         )
         print("**************************************************************")
