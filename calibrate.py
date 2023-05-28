@@ -8,7 +8,7 @@ import adafruit_bno08xMOD
 from adafruit_bno08xMOD.uart import BNO08X_UART
 
 import serial
-uart = serial.Serial("/dev/ttyUSB0", baudrate=3000000)
+uart = serial.Serial("/dev/imu", baudrate=3000000)
 bno = BNO08X_UART(uart, debug=False)
 
 bno.begin_calibration()
