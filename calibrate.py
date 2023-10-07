@@ -71,10 +71,15 @@ while True:
     if mag_status < 3 or acc_status < 3 or gyro_status < 3 or game_status < 3:
         calibration_good_at = None
     if calibration_good_at and (time.monotonic() - calibration_good_at > 5.0):
-        input_str = input("\n\nEnter S to save or anything else to continue: ")
-        if input_str.strip().lower() == "s":
-            bno.save_calibration_data()
-            break
+        bno.save_calibration_data()
+        print("******************")
+        print("calibration saved")
+        print("******************")
+        break
+        # input_str = input("\n\nEnter 's' to save or anything else to continue: ")
+        # if input_str.strip().lower() == "s":
+        #     bno.save_calibration_data()
+        #     break
 
         calibration_good_at = None
     # print("**************************************************************")
